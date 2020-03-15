@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/new
   def new
-    @city = City.find_by(name: params[:city_id])
+    @city = City.find_by(slug: params[:city_id])
     @business = Business.new
   end
 
@@ -31,7 +31,7 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to city_path(@city.name), notice: 'Business was successfully created.' }
+        format.html { redirect_to city_path(@city.slug), notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new }

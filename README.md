@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+With the increase of Corona Virus cases and the increase of government officials encouraging everyone to stay in, I started this site as a grassroots effort for everyone to still patron their local businesses but in the online channels.
 
-Things you may want to cover:
 
-* Ruby version
+### development
 
-* System dependencies
+`bundle install`
+`rake db:migrate`
+`rails s`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Take a look at the migrations and rails models for the data model.
+If you are working on an issue, create a feature branch and open a PR.

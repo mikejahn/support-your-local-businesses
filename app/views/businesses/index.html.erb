@@ -1,35 +1,17 @@
 <p id="notice"><%= notice %></p>
+<% @businesses.each do |business| %>
+  <div class="col-sm-6">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%=business.name%></h5>
+        <h5 class="card-title"><%=business.address%></h5>
 
-<h1>Businesses</h1>
+        <%= link_to  "Website" , business.website, class: "btn btn-info" %>
+        <%= link_to  "Gift Card or Online Store" , business.gift_card_link, class: "btn btn-info" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Website</th>
-      <th>Address</th>
-      <th>Gift card link</th>
-      <th>City</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @businesses.each do |business| %>
-      <tr>
-        <td><%= business.name %></td>
-        <td><%= business.website %></td>
-        <td><%= business.address %></td>
-        <td><%= business.gift_card_link %></td>
-        <td><%= business.city %></td>
-        <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_city_business_path(business) %></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <%= link_to 'New Business', new_city_business_path %>

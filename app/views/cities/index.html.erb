@@ -1,18 +1,16 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
-
-<h1>Cities</h1>
-
-<table>
-
-  <tbody>
-    <% @cities.each do |city| %>
-      <tr>
-        <td><%= link_to  city.name , city_path(city.name) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New City', new_city_path %>
+<div class="row">
+  <% @cities.each do |city| %>
+    <div class="col-md-3">
+      <div class="card">
+        <%= image_tag city.image_url, class:"card-img-top", alt: city.name %>
+        <div class="card-body">
+          <h5 class="card-title"><%=city.name%></h5>
+          <%= link_to  "View #{city.name} Businesses" , city_path(city.slug), class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
