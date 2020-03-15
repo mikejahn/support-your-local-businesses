@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @city.name %></h2>
+
+
+<% if @city.businesses.length > 0 %>
+<h3>Businesses</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Website</th>
+      <th>Address</th>
+      <th>Gift card link</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @city.businesses.each do |business| %>
+      <tr>
+        <td><%= business.name %></td>
+        <td><%= business.website %></td>
+        <td><%= business.address %></td>
+        <td><%= business.gift_card_link %></td>
+        <td><%= business.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% elsif %>
+<h4>No Businesses for this city!</h4>
+<% end %>
+<p>
+<%= link_to 'Add a Business!', new_city_business_path(city_id: @city.name) %>
+</p>

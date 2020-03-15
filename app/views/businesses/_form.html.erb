@@ -1,0 +1,39 @@
+<%= form_with(model: business, local: true, url: city_businesses_path) do |form| %>
+  <% if business.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+      <ul>
+      <% business.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gift_card_link %>
+    <%= form.text_field :gift_card_link %>
+  </div>
+
+    <%= form.hidden_field city_id: @city.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
