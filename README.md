@@ -11,3 +11,4 @@ With the increase of Corona Virus cases and the increase of government officials
 
 Take a look at the migrations and rails models for the data model.
 If you are working on an issue, create a feature branch and open a PR.
+You will need the proper Unsplash API keys in your ENV for the images to show.
