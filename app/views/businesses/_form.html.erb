@@ -11,29 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :website %>
-    <%= form.text_field :website %>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :website %>
+      <%= form.text_field :website, required: true, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, required: true, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label "Gift Card or Online Store URL" %>
-    <%= form.text_field :gift_card_link %>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label "Gift Card or Online Store URL" %>
+      <%= form.text_field :gift_card_link, required: true, class: "form-control" %>
+    </div>
   </div>
-
-    <%= form.hidden_field city_id: @city.id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
+
+  <%= form.hidden_field city_id: @city.id %>
 <% end %>
