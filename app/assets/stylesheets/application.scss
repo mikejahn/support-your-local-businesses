@@ -14,5 +14,32 @@
  *= require_self
  */
  @import "bootstrap";
- a {color:#FFFFFF;}         /* Unvisited link  */
- a:visited {color:#FFFFFF;} /* Visited link    */
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+ body {
+   font-family: 'Open Sans', sans-serif;
+   font-size: 0.9rem;
+ }
+
+ .container-fluid {
+   max-width:1600px;
+ }
+
+ .card, .btn {
+   border-radius: 0;
+ }
+
+ .navbar-brand {
+  font-size: calc(30% + 1vw + 1vh);
+ }
+
+ .form-label-group input:not(:placeholder-shown) ~ label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+.navbar {
+  border-bottom: 1px solid #ccc;
+}
