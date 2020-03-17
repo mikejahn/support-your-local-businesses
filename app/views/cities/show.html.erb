@@ -64,5 +64,5 @@
 <% elsif %>
 <h4>No Businesses for this city!</h4>
 <% end %>
-<%= link_to 'Add a Business!', new_city_business_path(city_id: @city.name), class: "btn btn-primary" %>
+<%= link_to 'Add a Business!', new_city_business_path(city_id: @city.slug), class: "btn btn-primary" %>
 </div>
