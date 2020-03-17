@@ -8,7 +8,7 @@ class City < ApplicationRecord
   private
 
   def set_slug
-    self.slug = name.gsub ' ', ''
+    self.slug = name.gsub(' ', '').gsub(',','')
   end
 
   def set_image_url
