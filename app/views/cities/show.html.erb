@@ -1,19 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <style>
-  .bgimage {
-    width:100%;
-    height:300px;
+  section{
+    position: relative;
+    z-index: 1;
+  }
+
+
+  section::before {
     background: url(<%=@city.image_url%>);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
     background-attachment: fixed;
+    opacity: .5;
   }
 
-  h1 {
-    padding-top: 100px;
-    font-size: 150px;
+  .title {
+    padding-top: 200px;
+    font-size: 5rem;
+
   }
 </style>
 
@@ -22,7 +35,9 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <center>
-        <h1><%= @city.name %></h1>
+          <div>
+            <h1 class='title'><%= @city.name %></h1>
+          </div>
         </center>
       </div>
     </div>
@@ -30,24 +45,24 @@
 </section>
 <div class="container">
 <% if @city.businesses.length > 0 %>
-<p id="notice"><%= notice %></p>
-<%  @city.businesses.each do |business| %>
-  <div class="col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%=business.name%></h5>
-        <h5 class="card-title"><%=business.address%></h5>
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <%  @city.businesses.each do |business| %>
+      <div class="col-lg-4 col-sm-6 col-sm-6 col-xs-12 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%=business.name%></h5>
+            <h5 class="card-title"><%=business.address%></h5>
 
-        <%= link_to  "Website" , business.website, class: "btn btn-info" %>
-        <%= link_to  "Gift Card or Online Store" , business.gift_card_link, class: "btn btn-info" %>
-
+            <%= link_to  "Website" , business.website, class: "btn btn-info mt-1" %>
+            <%= link_to  "Gift Card or Online Store" , business.gift_card_link, class: "btn btn-info mt-1" %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
-
 <% elsif %>
-<h4>No Businesses for this city!</h4>
+  <h4>No Businesses for this city!</h4>
 <% end %>
-<%= link_to 'Add a Business!', new_city_business_path(city_id: @city.name), class: "btn btn-primary" %>
+<%= link_to 'Add a Business!', new_city_business_path(city_id: @city.slug), class: "btn btn-primary mt-3" %>
 </div>

@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :cities do
     resources :businesses
   end
+
+get '/about', to: 'content#about'
+
 end

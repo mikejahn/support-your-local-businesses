@@ -25,7 +25,7 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @city = City.find_by(name: params[:city_id])
+    @city = City.find_by(slug: params[:city_id])
     @business = Business.new(business_params)
     @business.city = @city
 
