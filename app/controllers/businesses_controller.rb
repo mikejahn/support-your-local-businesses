@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/new
   def new
-    @city = City.find_by(slug: params[:city_id])
+    @city = City.find_by(slug: params[:city_id].downcase)
     @business = Business.new
   end
 
@@ -25,7 +25,7 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @city = City.find_by(slug: params[:city_id])
+    @city = City.find_by(slug: params[:city_id].downcase)
     @business = Business.new(business_params)
     @business.city = @city
 
