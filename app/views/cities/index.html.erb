@@ -1,13 +1,14 @@
-<div class="container">
+<div class="container-fluid">
 <p id="notice"><%= notice %></p>
 <div class="row">
   <% @cities.each do |city| %>
-    <div class="col-md-3">
-      <div class="card">
-        <%= image_tag city.image_url, class:"card-img-top", alt: city.name %>
-        <div class="card-body">
-          <h5 class="card-title"><%=city.name%></h5>
-          <%= link_to  "View #{city.name} Businesses" , city_path(city.slug), class: "btn btn-info" %>
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm mb-3">
+        <div class="card-body p-0">
+        <%= link_to(city_path(city.slug)) do %>
+          <%= image_tag city.image_url, class:"city-bg-image", width: '100%', alt: city.name %>
+          <h5 class="card-title city-name"><%=city.name%></h5>
+        <% end %>
         </div>
       </div>
     </div>
