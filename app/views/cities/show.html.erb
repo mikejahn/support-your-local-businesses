@@ -44,6 +44,9 @@
   </div>
 </section>
 <div class="container">
+  <center>
+    <%= link_to 'Submit a New Business', new_city_business_path(city_id: @city.slug), class: "btn btn-outline-success mt-3" %>
+  </center>
 <% if @city.businesses.length > 0 %>
   <p id="notice"><%= notice %></p>
   <div class="row">
@@ -64,5 +67,4 @@
 <% elsif %>
   <h4>No Businesses for this city!</h4>
 <% end %>
-<%= link_to 'Add a Business!', new_city_business_path(city_id: @city.slug), class: "btn btn-primary mt-3" %>
 </div>
