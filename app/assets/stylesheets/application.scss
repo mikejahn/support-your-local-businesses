@@ -13,12 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+ $theme-colors: ( "success": white, "primary": #011936);
+
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
  body {
    font-family: 'Open Sans', sans-serif;
    font-size: 1rem;
+   background-color: #011936;
+   color: white;
  }
 
  .container-fluid {
