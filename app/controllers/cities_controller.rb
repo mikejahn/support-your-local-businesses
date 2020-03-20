@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = City.left_joins(:businesses).group(:id).order('COUNT(businesses.id) DESC')
   end
 
   # GET /cities/1
